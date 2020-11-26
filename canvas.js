@@ -3,9 +3,9 @@ window.addEventListener('load', () =>{
     const ctx = canvas.getContext('2d');
     const colorPicker = document.getElementById('colorpicker');
     const eraseBtn = document.getElementById('erase');
-
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
+    const menu = document.getElementById('menu');
+    canvas.height = 600;
+    canvas.width = 800;
 
     let painting = false;
     function startPosition(e) {
@@ -24,15 +24,17 @@ window.addEventListener('load', () =>{
     function erase(e) {
         ctx.strokeStyle = '#FFFFFF';
     }
-
+    //annyit vonok ki amilyen magas a
+    //menu div ezt vhogy át kéne írni
     function draw(e) {
         if(!painting) return;
         ctx.lineWidth = 10;
         ctx.lineCap = 'round';
-        ctx.lineTo(e.clientX, e.clientY);
+        ctx.lineTo(e.clientX, e.clientY - 30);
         ctx.stroke();
         ctx.beginPath();
-        ctx.moveTo(e.clientX, e.clientY);
+        console.log(menu.height);
+        ctx.moveTo(e.clientX, e.clientY - 30);
     }
 
     canvas.addEventListener('mousedown', startPosition);
