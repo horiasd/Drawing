@@ -2,7 +2,8 @@ window.addEventListener('load', () =>{
     const canvas = document.querySelector('#canvas');
     const ctx = canvas.getContext('2d');
     const colorPicker = document.getElementById('colorpicker');
-    
+    const eraseBtn = document.getElementById('erase');
+
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
@@ -16,9 +17,12 @@ window.addEventListener('load', () =>{
         ctx.beginPath();
     }
 
-    function changeColor(event) {
-        console.log(event.target.value);
-        ctx.strokeStyle = event.target.value;
+    function changeColor(e) {
+        ctx.strokeStyle = e.target.value;
+    }
+
+    function erase(e) {
+        ctx.strokeStyle = '#FFFFFF';
     }
 
     function draw(e) {
@@ -35,7 +39,7 @@ window.addEventListener('load', () =>{
     canvas.addEventListener('mouseup', finishedPosition);
     canvas.addEventListener('mousemove', draw);
     colorPicker.addEventListener('change', changeColor, false);
-
+    eraseBtn.addEventListener('click',erase);
 
 });
 
