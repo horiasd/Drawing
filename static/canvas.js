@@ -5,15 +5,17 @@ window.addEventListener('load', () =>{
     const eraseBtn = document.getElementById('erase');
     const brushSizeSlider = document.getElementById('brushsize');
     //const menu = document.getElementById('menu');
+
     canvas.height = 600;
     canvas.width = 800;
-    //default value
     ctx.lineWidth = 10;
     let painting = false;
+    
     function startPosition(e) {
         painting = true;
         draw(e);
     }
+    
     function finishedPosition() {
         painting = false;
         ctx.beginPath();
@@ -51,6 +53,7 @@ window.addEventListener('load', () =>{
     colorPicker.addEventListener('change', changeColor, false);
     eraseBtn.addEventListener('click', erase);
     brushSizeSlider.addEventListener('change', brushSize);
+
 });
 
 //maybe
