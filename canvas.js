@@ -6,7 +6,7 @@ window.addEventListener('load', () =>{
     const menu = document.getElementById('menu');
     canvas.height = 600;
     canvas.width = 800;
-
+    console.log('hey');
     let painting = false;
     function startPosition(e) {
         painting = true;
